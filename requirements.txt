@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+deepface
+opencv-python
+numpy
+mtcnn
+pydantic
