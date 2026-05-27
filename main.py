@@ -3,10 +3,18 @@ from pydantic import BaseModel
 from deepface import DeepFace
 from contextlib import asynccontextmanager
 import urllib.request
+import ssl
 import numpy as np
 import cv2
 import time
 import threading
+
+# Tắt xác thực SSL để sửa lỗi CERTIFICATE_VERIFY_FAILED khi tải ảnh/tải model
+try:
+    ssl._create_default_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+
 
 # =======================================================
 # KHÓA BẢO VỆ AI (Ngăn sập server khi có nhiều người điểm danh cùng lúc)
